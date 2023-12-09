@@ -389,7 +389,7 @@ spacer{
     border-radius: 20px;
     transition: ease-in-out .2s;
     position: fixed;
-    bottom: 1vh;
+    bottom: .8vh;
     left:0px;
     margin: .5rem 0rem;
     width:76%;
