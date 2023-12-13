@@ -128,7 +128,7 @@ transition: ease-in-out .3s;
     vertical-align: top;
     font-family: 'Titan One', sans-serif;
     height :75vh;
-    width: 68%;
+    width: 85%;
     background-color:rgba(20, 29, 30, 0.3);
     backdrop-filter: blur(90px);
     -webkit-backdrop-filter: blur(90px);
@@ -149,6 +149,9 @@ transition: ease-in-out .3s;
     animation-duration: 1.8s;
     animation-fill-mode: forwards; 
     animation-name: shrink;
+}
+.xp{
+    width:70%;
 }
 @keyframes expand {
     35%{width:70%}

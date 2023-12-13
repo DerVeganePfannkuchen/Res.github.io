@@ -14,7 +14,7 @@ for(let x =0; x< options.length; x++){
             for(let y = 0; y< mainBox.length; y++){
                 if(!(y==x) && !(mainBox[y].classList.contains('hidden'))){
                     mainBox[y].classList.add('hidden')
-                    if(y== 0){
+                    if(y== 1){
                     mainXP.classList.add('expand')
                     box.classList.add('slideDown')  
                     setTimeout(removeMainXpAt, 3000)
@@ -22,6 +22,8 @@ for(let x =0; x< options.length; x++){
                 }else if(y==x && mainBox[y].classList.contains('hidden')){
                     mainXP.classList.add('shrink')
                     box.classList.add('slideUP')
+                    box.classList.remove('hidden')
+                    mainXP.classList.add('xp')
                     mainBox[y].classList.remove('hidden')
                     box.classList.remove('hidden')
                     setTimeout(removeMainXpAt, 1800)
@@ -35,9 +37,9 @@ for(let x =0; x< options.length; x++){
             let num = x;
             for(let y = 0; y< mainBox.length; y++){
                 if(!(y==x) && !(mainBox[y].classList.contains('hidden'))){
-                    if( y== 0 && mainXP.classList.contains('shrink')){
+                    if( y== 1 && mainXP.classList.contains('shrink')){
                         setTimeout(outAndDown,1800)  
-                    }else if (y== 0){
+                    }else if (y== 1){
                         outAndDown()
                     }
                     mainBox[y].classList.add('hidden')
@@ -52,11 +54,11 @@ for(let x =0; x< options.length; x++){
             let num = x;
             for(let y = 0; y< mainBox.length; y++){
                 if(!(y==x) && !(mainBox[y].classList.contains('hidden'))){
-                    if( y== 0 && mainXP.classList.contains('shrink') && !(mainBox[1].claslist.contains('hidden'))){
+                    if( y== 1 && mainXP.classList.contains('shrink') && !(mainBox[0].classList.contains('hidden'))){
                         setTimeout(outAndDown,1800)  
-                    } else if( y== 0 && mainXP.classList.contains('shrink')){
+                    } else if( y== 1 && mainXP.classList.contains('shrink')){
                         setTimeout(outAndDown,1800)
-                    }else if (y== 0){
+                    }else if (y== 1){
                         outAndDown()
                     }
                     mainBox[y].classList.add('hidden')
