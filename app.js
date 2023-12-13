@@ -1,10 +1,77 @@
 const jake = document.getElementsByClassName("exSelect")
 const boxA = document.getElementsByClassName("box")
+const options = document.getElementsByClassName("optionButtons")
+const mainBox = document.getElementsByClassName("mainBox")
+const mainXP = document.querySelector(".MainXp")
+const box = document.querySelector(".grid")
+
 var dateClick = 0
 const FooterIcon = document.getElementsByClassName("imgIcon")
 const Windows = document.getElementsByClassName("HiddenIconWindow")
-for(let x=0; x < FooterIcon.length;x++){
-    console.log(x, FooterIcon[x])
+for(let x =0; x< options.length; x++){
+    options[x].addEventListener('click', event =>{
+        if (event.target.innerHTML == 'Experirence'){
+            let num = x;
+            for(let y = 0; y< mainBox.length; y++){
+                if(!(y==x) && !(mainBox[y].classList.contains('hidden'))){
+                    mainBox[y].classList.add('hidden')
+                    if(y== 0){
+                    mainXP.classList.add('expand')
+                    box.classList.add('slideDown')  
+                    setTimeout(removeMainXpAt, 3000)
+                    }
+                }else if(y==x && mainBox[y].classList.contains('hidden')){
+                    mainXP.classList.add('shrink')
+                    box.classList.add('slideUP')
+                    mainBox[y].classList.remove('hidden')
+                    box.classList.remove('hidden')
+                    setTimeout(removeMainXpAt, 1800)
+
+                }else {
+                    console.log('not you fucking up')
+                }
+            }
+            
+        }else if(event.target.innerHTML == 'Porfolio') {
+            let num = x;
+            for(let y = 0; y< mainBox.length; y++){
+                if(!(y==x) && !(mainBox[y].classList.contains('hidden'))){
+                    if( y== 0 && mainXP.classList.contains('shrink')){
+                        setTimeout(outAndDown,1800)  
+                    }else if (y== 0){
+                        outAndDown()
+                    }
+                    mainBox[y].classList.add('hidden')
+                }else if(y==x){
+                    mainBox[y].classList.remove('hidden')
+                }else {
+                    console.log('not you fucking up')
+                }
+            }
+        }else if (event.target.innerHTML == 'more+'){
+            let num = x;
+            for(let y = 0; y< mainBox.length; y++){
+                if(!(y==x) && !(mainBox[y].classList.contains('hidden'))){
+                    if( y== 0 && mainXP.classList.contains('shrink')){
+                        setTimeout(outAndDown,1800)  
+                    }else if (y== 0){
+                        outAndDown()
+                    }
+                    mainBox[y].classList.add('hidden')
+                }else if(y==x){
+                    mainBox[y].classList.remove('hidden')
+                }else {
+                    console.log('not you fucking up')
+                }
+            }
+                
+            
+        }else {
+            console.log("not you fucking up")
+            console.log(event)
+
+        }
+    })
 }
 
 for(let x =0; x< FooterIcon.length; x++){
@@ -132,4 +199,15 @@ function RemoveContact(){
     Windows[1].classList.remove('windowOpen')
     FooterIcon[2].classList.remove('open')
     setTimeout(RemoveWindow,500, 2) 
+}
+
+function removeMainXpAt() {
+    mainXP.classList.remove('shrink')
+    box.classList.remove('slideUP')
+    mainXP.classList.remove('expand')
+    box.classList.remove('slideDown')
+}
+function outAndDown(){
+    mainXP.classList.add('expand')
+    box.classList.add('slideDown')
 }
