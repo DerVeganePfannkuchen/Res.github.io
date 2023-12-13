@@ -55,7 +55,7 @@ transition: ease-in-out .3s;
     align-self: center;
 }
 .slideDown{
-    animation-duration: 1.8s;
+    animation-duration: 1s;
     animation-fill-mode: forwards; 
     animation-name: slideDown;
 }
