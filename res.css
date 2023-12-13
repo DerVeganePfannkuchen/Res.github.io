@@ -417,6 +417,7 @@ spacer{
     background-color:rgba(161, 181, 183, 0.341);
     -webkit-backdrop-filter: blur(100px);
     backdrop-filter: blur(100px);
+    cursor: pointer;
 }
 .footerNav{
     display: flex;
