@@ -195,6 +195,7 @@ transition: ease-in-out .3s;
     transform: rotate(90deg);
     width: fit-content;
     transition: ease-in-out .4s;
+    cursor: pointer;
 }
 .optionButtons:hover{
     font-size: 1.8vw;
@@ -483,4 +484,5 @@ spacer{
     height: 5vw;
     width: 5vw;
     border-radius: 5000px;
+    cursor: pointer;
 }
