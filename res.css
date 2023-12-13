@@ -46,6 +46,7 @@ transition: ease-in-out .3s;
 }
 .grid{
     display: inline-grid;
+    position: relative;
     top:0; 
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr ;
@@ -56,7 +57,7 @@ transition: ease-in-out .3s;
     align-self: center;
 }
 .slideDown{
-    animation-duration: 1.5s;
+    animation-duration: 1.8s;
     animation-fill-mode: forwards; 
     animation-name: slideDown;
 }
@@ -66,10 +67,14 @@ transition: ease-in-out .3s;
     animation-name: slideUp;
 }
 @keyframes slideDown {  
-   35%{width: 20%;}
-    100%{transform: translateY(90vh) ;
-        display: none;
-        width: 0%;}
+   35%{width: 20%;
+        right:0;}
+    73%{width: 0%}
+    97%{right:100vh;}
+   98%{right: 150vh;}
+    100%{transform: translateY(100vh);
+        width: 0%;
+        display: none;}
 }
 @keyframes slideUp {  
     0%{display: inline-grid;
