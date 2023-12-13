@@ -53,13 +53,15 @@ for(let x =0; x< options.length; x++){
             let num = x;
             for(let y = 0; y< mainBox.length; y++){
                 if(!(y==x) && !(mainBox[y].classList.contains('hidden'))){
-                    if( y== 0 && mainXP.classList.contains('shrink')){
+                    if( y== 0 && mainXP.classList.contains('shrink') && !(mainBox[1].claslist.contains('hidden'))){
                         setTimeout(outAndDown,1800)  
+                    } else if( y== 0 && mainXP.classList.contains('shrink')){
+                        setTimeout(outAndDown,1800)
                     }else if (y== 0){
                         outAndDown()
                     }
                     mainBox[y].classList.add('hidden')
-                    box.classList.add('hidden')
+                    setTimeout(box.classList.add,500,'hidden' )
                 }else if(y==x){
                     mainBox[y].classList.remove('hidden')
                 }else {
