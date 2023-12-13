@@ -42,6 +42,7 @@ for(let x =0; x< options.length; x++){
                         outAndDown()
                     }
                     mainBox[y].classList.add('hidden')
+                    setTimeout(box.classList.add,500,'hidden' )
                 }else if(y==x){
                     mainBox[y].classList.remove('hidden')
                 }else {
@@ -58,6 +59,7 @@ for(let x =0; x< options.length; x++){
                         outAndDown()
                     }
                     mainBox[y].classList.add('hidden')
+                    box.classList.add('hidden')
                 }else if(y==x){
                     mainBox[y].classList.remove('hidden')
                 }else {

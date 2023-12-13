@@ -12,6 +12,8 @@ body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
+    height: 100%;
+    overflow: hidden;
 }
 /*nav bar secetion*/
 .nav{
@@ -44,7 +46,6 @@ transition: ease-in-out .3s;
 }
 .grid{
     display: inline-grid;
-    position: relative;
     top:0; 
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr ;
@@ -66,7 +67,7 @@ transition: ease-in-out .3s;
 }
 @keyframes slideDown {  
    35%{width: 20%;}
-    100%{top: 100vh;
+    100%{transform: translateY(90vh) ;
         display: none;
         width: 0%;}
 }
