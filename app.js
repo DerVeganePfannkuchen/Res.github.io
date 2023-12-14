@@ -1,9 +1,10 @@
 const options = document.getElementsByClassName("optionButtons")
 const mainBox = document.getElementsByClassName("mainBox")
+const windows = document.getElementsByClassName("window")
 const mainXP = document.querySelector(".MainXp")
 const box = document.querySelector(".grid")
 
-
+console.log(windows[2].classList[0])
 var dateClick = 0
 const FooterIcon = document.getElementsByClassName("imgIcon")
 const Windows = document.getElementsByClassName("HiddenIconWindow")
@@ -78,63 +79,70 @@ for(let x =0; x< options.length; x++){
     })
 }
 
+
 for(let x =0; x< FooterIcon.length; x++){
     FooterIcon[x].addEventListener('click', event =>{
-        if(event.target.classList.contains('About') && !(event.target.classList.contains('open')) && FooterIcon[2].classList.contains('open')){
-            Windows[1].classList.add('windowClose')
-            Windows[1].classList.remove('windowOpen')
-            FooterIcon[2].classList.remove('open')
-            setTimeout(RemoveWindow,500, 2) 
-            setTimeout(AddWindow, 500, x)
-               
-        } else if(event.target.classList.contains('About') && !(event.target.classList.contains('open'))){
-            AddWindow(x)
-               
-        } else if(event.target.classList.contains('About') && event.target.classList.contains('open')){
-            Windows[x-1].classList.add('windowClose')
-            Windows[x-1].classList.remove('windowOpen')
-            FooterIcon[x].classList.remove('open')
-            setTimeout(RemoveWindow,500, x) 
-
-        } else if(event.target.classList.contains('contact') && !(event.target.classList.contains('open')) && FooterIcon[1].classList.contains('open')){
-            Windows[0].classList.add('windowClose')
-            Windows[0].classList.remove('windowOpen')
-            FooterIcon[1].classList.remove('open')
-            setTimeout(RemoveWindow,500, 1) 
-            setTimeout(AddWindow, 500, x)
-               
-        } else if (event.target.classList.contains('contact') && !(event.target.classList.contains('open'))){
-            AddWindow(x)   
-
-        }else if(event.target.classList.contains('contact') && event.target.classList.contains('open')){
-            Windows[x-1].classList.add('windowClose')
-            Windows[x-1].classList.remove('windowOpen')
-            FooterIcon[x].classList.remove('open')
-            setTimeout(RemoveWindow,500, x) 
-        } else {
-            return
+       let z
+        if(event.target.classList[1]== 'home'){
+            z= 0
+       }else if(event.target.classList[1]== 'about'){
+            z=1
+       }else if(event.target.classList[1]== 'contact'){
+            z=2
+       }else{
+            z=3
+       }
+       
+       for( let y =0; y< FooterIcon.length; y++){
+          if( !(y == z) && FooterIcon[y].classList.contains('open') && z < 3){
+                windows[y].classList.add('windowClose')
+                windows[y].classList.remove('windowOpen')
+                FooterIcon[y].classList.remove('open')
+                setTimeout(RemoveWindow,500, y) 
+                console.log(x)
+            }else{
+            }
         }
+        if (x==z && z < 3 && !(FooterIcon[z].classList.contains('open'))) {
+            AddWindow(z)
+            return
+            }
+            if(x==z && FooterIcon[z].classList.contains('open') && z < 3) {
+            windows[z].classList.add('windowClose')
+            windows[z].classList.remove('windowOpen')
+            FooterIcon[z].classList.remove('open')
+            setTimeout(RemoveWindow,500, z) 
+            console.log("open closed window")
+        }
+            
+       
     })
 }
 
 
 function RemoveWindow (x){
-    Windows[x-1].classList.remove('windowClose')
+    Windows[x].classList.remove('windowClose')
 }
 
 function AddWindow(x){
-    Windows[x-1].classList.add('windowOpen')
+    Windows[x].classList.add('windowOpen')
     FooterIcon[x].classList.add('open')
 }
 function RemoveAbout(){
-            Windows[0].classList.add('windowClose')
-            Windows[0].classList.remove('windowOpen')
+            Windows[1].classList.add('windowClose')
+            Windows[1].classList.remove('windowOpen')
             FooterIcon[1].classList.remove('open')
             setTimeout(RemoveWindow,500, 1) 
 }
+function RemoveHome(){
+    Windows[0].classList.add('windowClose')
+    Windows[0].classList.remove('windowOpen')
+    FooterIcon[0].classList.remove('open')
+    setTimeout(RemoveWindow,500, 0) 
+}
 function RemoveContact(){
-    Windows[1].classList.add('windowClose')
-    Windows[1].classList.remove('windowOpen')
+    Windows[2].classList.add('windowClose')
+    Windows[2].classList.remove('windowOpen')
     FooterIcon[2].classList.remove('open')
     setTimeout(RemoveWindow,500, 2) 
 }
