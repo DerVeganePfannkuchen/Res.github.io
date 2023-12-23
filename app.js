@@ -3,11 +3,12 @@ const mainBox = document.getElementsByClassName("mainBox")
 const windows = document.getElementsByClassName("window")
 const mainXP = document.querySelector(".MainXp")
 const box = document.querySelector(".grid")
-
-console.log(windows[2].classList[0])
+const more = document.getElementsByClassName("mElements")
 var dateClick = 0
 const FooterIcon = document.getElementsByClassName("imgIcon")
+console.log(FooterIcon)
 const Windows = document.getElementsByClassName("HiddenIconWindow")
+//handles the option switching
 for(let x =0; x< options.length; x++){
     options[x].addEventListener('click', event =>{
         if (event.target.innerHTML == 'Experirence'){
@@ -39,6 +40,7 @@ for(let x =0; x< options.length; x++){
             for(let y = 0; y< mainBox.length; y++){
                 if(!(y==x) && !(mainBox[y].classList.contains('hidden'))){
                     if( y== 1 && mainXP.classList.contains('shrink')){
+                        console.log('wait close exp')
                         setTimeout(outAndDown,1800)  
                     }else if (y== 1){
                         outAndDown()
@@ -79,7 +81,7 @@ for(let x =0; x< options.length; x++){
     })
 }
 
-
+//handels the footter windows 
 for(let x =0; x< FooterIcon.length; x++){
     FooterIcon[x].addEventListener('click', event =>{
        let z
@@ -105,7 +107,7 @@ for(let x =0; x< FooterIcon.length; x++){
         }
         if (x==z && z < 3 && !(FooterIcon[z].classList.contains('open'))) {
             AddWindow(z)
-            return
+            return 
             }
             if(x==z && FooterIcon[z].classList.contains('open') && z < 3) {
             windows[z].classList.add('windowClose')
@@ -116,6 +118,21 @@ for(let x =0; x< FooterIcon.length; x++){
         }
             
        
+    })
+}
+//more+ main displayed object switching
+for(let x = 0; x < more.length;x++){
+    more[x].addEventListener('click',event =>{
+        if( event.target.classList.contains('notActive')){
+            for(let y=0;y < more.length;y++){
+                if(more[y].classList.contains('mElementMain')){
+                more[y].classList.remove('mElementMain')
+                more[y].classList.add('notActive')
+                }
+            }
+            event.target.classList.add('mElementMain')
+            event.target.classList.remove('notActive')
+        }
     })
 }
 
