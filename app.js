@@ -6,7 +6,8 @@ const box = document.querySelector(".grid")
 const more = document.getElementsByClassName("mElements")
 var dateClick = 0
 const FooterIcon = document.getElementsByClassName("imgIcon")
-console.log(FooterIcon)
+const WorkXPIcons = document.getElementsByClassName("xpImage")
+const WorkxpWindows = document.getElementsByClassName("workxpItem")
 const Windows = document.getElementsByClassName("HiddenIconWindow")
 //handles the option switching
 for(let x =0; x< options.length; x++){
@@ -135,7 +136,53 @@ for(let x = 0; x < more.length;x++){
         }
     })
 }
+//switches the workxp Windows
+for(let x =0; x < WorkXPIcons.length; x++){
+    WorkXPIcons[x].addEventListener('click', event =>{
+        if(event.target.classList.contains('zero') ){
+            for(let y= 0; y < WorkxpWindows.length;y++ ){
+                WorkxpWindows[y].classList.add('hidden')
+            }
+            WorkxpWindows[0].classList.remove('hidden')
 
+        } else if(event.target.classList.contains('one') ){
+            for(let y= 0; y < WorkxpWindows.length;y++ ){
+                WorkxpWindows[y].classList.add('hidden')
+            }
+
+            WorkxpWindows[1].classList.remove('hidden')
+        }else if(event.target.classList.contains('two') ){
+            for(let y= 0; y < WorkxpWindows.length;y++ ){
+                WorkxpWindows[y].classList.add('hidden')
+            }
+
+            WorkxpWindows[2].classList.remove('hidden')
+        }else if(event.target.classList.contains('three') ){
+            for(let y= 0; y < WorkxpWindows.length;y++ ){
+                WorkxpWindows[y].classList.add('hidden')
+            }
+
+            WorkxpWindows[3].classList.remove('hidden')
+        }else if(event.target.classList.contains('four') ){
+            for(let y= 0; y < WorkxpWindows.length;y++ ){
+                WorkxpWindows[y].classList.add('hidden')
+            }
+
+            WorkxpWindows[4].classList.remove('hidden')
+        }else if(event.target.classList.contains('five') ){
+            for(let y= 0; y < WorkxpWindows.length;y++ ){
+                WorkxpWindows[y].classList.add('hidden')
+            }
+
+            WorkxpWindows[5].classList.remove('hidden')
+        }else {
+            console.log("Biggg fuck up")
+            console.log(event.target.classList)
+        }
+
+    })
+
+}
 
 function RemoveWindow (x){
     Windows[x].classList.remove('windowClose')
