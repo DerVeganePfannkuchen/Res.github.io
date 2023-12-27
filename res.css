@@ -13,19 +13,33 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     height: 100%;
-    overflow: hidden;
 }
 .mainIcons{
     display: flex;
     flex-direction: row;
-    width: 100%;
-    height:100vh;
-    justify-content: center;
     flex-wrap: wrap;
+    row-gap: 2.5%;
+    column-gap: 0px;
+    width:100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
 }
+.mainIcons2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20%;
+    column-gap: 0px;
+    width:100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .icon{
     background-color: blueviolet;
     border-radius: 5000px;
-    width: 50vw;
-    height: 20%;
+    width: 10vw;
+    height: 10vw;
 }
