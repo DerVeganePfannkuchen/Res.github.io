@@ -14,32 +14,66 @@ body {
     background-size: cover;
     height: 100%;
 }
+html, body {
+    height: 100%;
+    width:100%;
+    margin: 0px;
+  }
 .mainIcons{
+    position: relative;
+    top:20%;
+    transform:translateY(-50%);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     row-gap: 2.5%;
     column-gap: 0px;
     width:100%;
-    height: 100%;
+    height: 20%;
     justify-content: space-around;
     align-items: center;
 }
 .mainIcons2{
+    position: relative;
+    top:40%;
+    transform:translateY(-50%);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20%;
     column-gap: 0px;
     width:100%;
-    height: 100%;
+    height: 20%;
     justify-content: space-evenly;
     align-items: center;
 }
 
 .icon{
+    position: relative;
+    top: 40%;
     background-color: blueviolet;
     border-radius: 5000px;
     width: 10vw;
     height: 10vw;
+    background-color:rgba(20, 29, 30, 0.3);
+    backdrop-filter: blur(90px);
+    -webkit-backdrop-filter: blur(90px);
+    border-left:1px solid rgba(235, 233, 233, 0.684);
+    border-top:1px solid rgba(235, 233, 233, 0.684);
+
+}
+.welcomeBox{
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    height :75%;
+    width: 85%;
+    background-color:rgba(20, 29, 30, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(90px);
+    border-left:1px solid rgba(235, 233, 233, 0.684);
+    border-top:1px solid rgba(235, 233, 233, 0.684);
+    border-radius: 25px;
+    z-index: 500;
 }
