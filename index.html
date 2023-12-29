@@ -10,19 +10,34 @@
 
     </head>
     <body>
-        <div class="welcomeBox"></div>
+        <!--welcome window-->
+        <div class="welcomeBox ">
+            <button class="closeWelcome" onclick="welcomeOut()"><p class="X">X</p></button>
+        </div>
        <!--Main icons-->
-       <div class ="mainIcons">
-        <div class ="icon"> </div>
-        <div class ="icon"></div>
-        <div class ="icon"></div>
+       <div class ="mainIcons hidden">
+            <div class ="icon"> <h2 class="iconLables">portfoilo</h2> </div>
+            <div class ="icon"> <h2 class="iconLables">experience</h2></div>
+            <div class ="icon"> <h2 class="iconLables">Qualifactions</h2></div>
+            <div class ="icon"><h2 class="iconLables">Endorsments</h2> </div>
+            <div class ="icon"><h2 class="iconLables">Education</h2></div>
        </div>
-       <div class ="mainIcons2">
-        <div class ="icon"> </div>
-        <div class ="icon"></div>
+       <!--Footer icons-->
+       <div class="footerNav hidden" >
+        <div class="footerIcon ">
+            <h2>home</h2>
+        </div>
+        <div class="footerIcon ">
+            <h2>about</h2>
+        </div>
+        <div class="footerIcon ">
+           <h2>contact</h2> 
+        </div>
+        <div class="footerIcon ">
+            <h2>DE</h2>
+        </div>
        </div>
-  
        <script src="app.js" defer></script>
-    
+       
     </body>
 </html>
