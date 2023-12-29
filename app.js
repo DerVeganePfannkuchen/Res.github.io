@@ -14,8 +14,7 @@ main.addEventListener('click', event =>{
 })
 
 function welcomeOut(){
-    if(!welcome.classList.contains('closing')){
-        welcome.classList.add('closing');
+    if(!welcome.classList.contains('hidden')){
         setTimeout(hiddWelcome =>{
         welcome.classList.add('hidden');
     },900)
@@ -23,9 +22,6 @@ function welcomeOut(){
     welcomeClose.classList.add('welcomeDown');
     X.classList.add('welcomeDown');
     home();
-    setTimeout(hiddWelcome =>{
-        welcome.classList.remove('closing');
-    },1600)
 }else{
     return;
 }
