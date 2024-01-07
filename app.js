@@ -1,3 +1,5 @@
+//init all the variables 
+
 const icons = document.getElementsByClassName("icon")
 const content = document.getElementsByClassName("content")
 const main =document.querySelector('.mainIcons')
@@ -14,6 +16,8 @@ const closeFooter =document.getElementsByClassName("closeFooterWindow")
 const XF =document.getElementsByClassName("XF")
 const WindowTimeout = setTimeout(welcomeOut,10000)
 console.log(closeFooter[0].classList + "hey bitch")
+let langButton = document.getElementsByClassName('langButton')
+var dataReload = document.querySelectorAll("a")
 
 console.log(WindowTimeout)
 console.log(main.querySelectorAll('.icon'))
@@ -59,11 +63,22 @@ footer.addEventListener('click', event =>{
             break
         }
     }
-    if(index == 1 && !(footerWindows[1].classList.contains('hidden')) ){
+    if(index == 3 || index2 ==3){
+        if(window.location.hash == '#de'){
+            window.location.hash ='#en'
+            window.location.reload(true)
+
+        }else if(window.location.hash == '#en'){
+            window.location.hash ='#de'
+            window.location.reload(true)
+        }
+
+    } else if(index == 1 && !(footerWindows[1].classList.contains('hidden')) ){
         footerWindows[0].classList.remove('hidden')
         closeFooterWindow(1)
     } else if(index2 == 1 && !(footerWindows[1].classList.contains('hidden')) ){
         footerWindows[0].classList.remove('hidden')
+        
         closeFooterWindow(1)
     }else if(index == 2 && !(footerWindows[0].classList.contains('hidden'))){
         footerWindows[1].classList.remove('hidden')
@@ -103,6 +118,7 @@ footer.addEventListener('click', event =>{
             closeContent(contentIndex)
            
         }else{
+            
             console.log('shake hoe')
             footer.classList.add('footerShake')
             setTimeout( removeShake =>{
@@ -220,4 +236,59 @@ function closeFooterWindow(index){
 
     }, 400)
     
+}
+
+//lang translations 
+var translations = {
+    en:{
+            portfoilo: 'Portfoilo',
+            experience: 'Experience',
+            qualifcations: 'Qualifcations',
+            endorsments : 'Endorsments',
+            education: 'Education',
+            home: 'home',
+            about:'about',
+            conact: 'contact',
+            lang:'DE'
+
+    },
+    de: {
+            portfoilo: 'Portfoilo',
+            experience: 'Erfahrung',
+            qualifcations: 'Qualifikationen',
+            endorsments : 'Empfhelungen',
+            education: 'Bildung',
+            home: 'Heimseite',
+            about:'über mich',
+            contact: 'Kontaktieren',
+            lang:'EN'
+    }
+}
+
+//hash detection and refresh
+if(window.location.hash){
+    console.log('DEUTSCH')
+    if(window.location.hash ==='#de'){
+        
+        document.getElementById('portfoilo').textContent = translations.de.portfoilo
+        document.getElementById('experience').textContent = translations.de.experience
+        document.getElementById('qualifcations').textContent = translations.de.qualifcations
+        document.getElementById('endorsments').textContent = translations.de.endorsments
+        document.getElementById('education').textContent = translations.de.education
+        document.getElementById('home').textContent = translations.de.home
+        document.getElementById('about').textContent = translations.de.about
+        document.getElementById('contact').textContent = translations.de.contact
+        document.getElementById('lang').textContent = translations.de.lang
+        document.documentElement.setAttribute('lang', 'de');
+        
+    }
+}
+//event listener for the a tags
+
+for(let i; i< dataReload.length;i++){
+    dataReload[i].addEventListener('click',event=>{
+        console.log('RELOAD')
+        window.location.reload(true)
+        
+    })
 }

@@ -19,7 +19,25 @@ html, body {
     width:100%;
     margin: 0px;
   }/*welcome window*/
-  .welcomeBox,.footerWindows{
+  .welcomeBox{
+    position: fixed;
+    top:45%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    height :75%;
+    width: 40%;
+    background-color:rgba(20, 29, 30, 0.3);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-left:1px solid rgba(235, 233, 233, 0.684);
+    border-top:1px solid rgba(235, 233, 233, 0.684);
+    border-radius: 25px;
+    z-index: 500;
+    animation-fill-mode: forwards; 
+    animation-duration: 2s;
+    animation-name: welcome;
+}
+.footerWindows{
     position: fixed;
     top:45%;
     left:50%;
@@ -239,7 +257,7 @@ html, body {
 }
 .footerIcon{
     height:100%;
-    width:13vh;
+    width:20vh;
     background-color:rgba(20, 29, 30, 0.3);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -253,9 +271,20 @@ html, body {
 }
 .footerIcon:hover{
     color:bisque;
-    width:15vh;
+    width:21vh;
 }
-
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:visited{
+    text-decoration: none;
+    color: inherit;
+}
+a:hover{
+    text-decoration: none;
+    color: inherit;
+}
 
 /*global classes*/
 .hidden{
