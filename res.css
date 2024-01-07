@@ -222,7 +222,7 @@ html, body {
     background-color:rgba(20, 29, 30, 0.3);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-radius: 500px;;
+    border-radius: 500px;
     display: flex;
     list-style-type: none;
     flex-direction: row;
@@ -284,6 +284,40 @@ a:visited{
 a:hover{
     text-decoration: none;
     color: inherit;
+}
+/*about window*/
+.aboutNav{
+    width:65%;
+    height:9%;
+    border-radius: 500px;
+    background-color:rgba(20, 29, 30, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    position: absolute;
+    top:3%;
+    left:50%;
+    transform: translateX(-50%);
+    justify-content: center;
+}
+.aboutItem{
+    height:100%;
+    width:50%;
+    background-color:rgba(20, 29, 30, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 5000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgba(255, 255, 255, 1);
+    transition: ease-in-out .2s;
+    cursor: pointer;
+}
+.aboutContent{
+    width:100%;
+    position: absolute;
+    top:15%;
 }
 
 /*global classes*/

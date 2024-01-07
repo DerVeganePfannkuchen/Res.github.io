@@ -265,8 +265,8 @@ var translations = {
             endorsments : 'Empfhelungen',
             education: 'Bildung',
             home: 'Heimseite',
-            about:'über mich',
-            contact: 'Kontaktieren',
+            about:'Über mich',
+            contact: 'Kontakt',
             lang:'EN'
     }
 }
