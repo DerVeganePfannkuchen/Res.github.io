@@ -17,13 +17,27 @@ console.log(closeFooter[0].classList + "hey bitch")
 
 console.log(WindowTimeout)
 console.log(main.querySelectorAll('.icon'))
+
 main.addEventListener('click', event =>{
-    var images = [].slice.call(main.querySelectorAll('.icon'),0); // get all images inside frame1, and convert to array
-    let index =images.indexOf(event.target)
-    content[index].classList.add("show")
-    content[index].classList.add("fadeInIcons")
-    closeContentX[index].classList.add("fadeInIcons")
-    iconsOut()
+    if(event.target.classList.contains('icon')){
+        var images = [].slice.call(main.querySelectorAll('.icon'),0); // get all images inside frame1, and convert to array
+        let index =images.indexOf(event.target)
+        content[index].classList.add("show")
+        content[index].classList.add("fadeInIcons")
+        closeContentX[index].classList.add("fadeInIcons")
+        iconsOut()
+    }else if(event.target.classList.contains('iconLables')){
+        var images = [].slice.call(main.querySelectorAll('.iconLables'),0); // get all images inside frame1, and convert to array
+        let index =images.indexOf(event.target)
+        content[index].classList.add("show")
+        content[index].classList.add("fadeInIcons")
+        closeContentX[index].classList.add("fadeInIcons")
+        iconsOut()
+        
+    }else{
+        console.log( 'kann es sein dass du dummb bist')
+    console.log( event.target.classList)
+    }
 })
 
 footer.addEventListener('click', event =>{
@@ -33,6 +47,18 @@ footer.addEventListener('click', event =>{
     let index2 =images2.indexOf(event.target)
     console.log("first " +index)
     console.log("second " +index2)
+    let contentOpen
+    let contentIndex
+    console.log('rund hoe')
+    for (let z = 0 ; z < content.length;z++){
+       //console.log(z)
+        if( content[z].classList.contains('show')){
+            contentOpen = true
+            contentIndex = z
+            console.log( z +' ' +contentOpen + ' ' + contentIndex)
+            break
+        }
+    }
     if(index == 1 && !(footerWindows[1].classList.contains('hidden')) ){
         footerWindows[0].classList.remove('hidden')
         closeFooterWindow(1)
@@ -63,6 +89,27 @@ footer.addEventListener('click', event =>{
     }else if(index2 == 2){
         footerWindows[1].classList.remove('hidden')
         console.log('qwee')
+    }else if((index == 0 || index2 ==0) && (!(footerWindows[0].classList.contains('hidden')) || !(footerWindows[1].classList.contains('hidden')))){
+        console.log('gotcha bitch')
+        closeFooterWindow(0)
+        closeFooterWindow(1)
+        if(contentOpen){
+            closeContent(contentIndex) 
+        }
+    } else if(index == 0 || index2 ==0){
+        
+
+        if(contentOpen){
+            closeContent(contentIndex)
+           
+        }else{
+            console.log('shake hoe')
+            footer.classList.add('footerShake')
+            setTimeout( removeShake =>{
+            footer.classList.remove('footerShake')
+            },400)
+            
+        }
     }
 })
 
@@ -94,6 +141,7 @@ function home(){
    };
    let delay =setTimeout(done =>{
     footer.classList.remove('fadeInIcons');
+    footer.classList.remove('fadeFooterIcons')
     for(let x=0; x< icons.length;x++){
          icons[x].classList.remove('fadeInIcons')
      };

@@ -210,7 +210,32 @@ html, body {
     flex-direction: row;
     justify-content: space-evenly;
     padding:0px;
-    transition: ease-in-out .3s;
+}
+.footerShake{
+    
+    animation-iteration-count: 2;
+    animation-duration: .2s;
+    animation-fill-mode: none; 
+    animation-name: shake;
+}
+@keyframes shake{
+    0%{
+        left:50%;
+    }
+    25%{
+        left:50.9%
+    }
+    50%{
+        left:50%;
+    }
+    75%{
+        left:49.9%;
+    }
+    100%{
+        left:50%;
+    }
+    
+    
 }
 .footerIcon{
     height:100%;
