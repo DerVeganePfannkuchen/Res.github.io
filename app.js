@@ -18,7 +18,13 @@ const WindowTimeout = setTimeout(welcomeOut,10000)
 console.log(closeFooter[0].classList + "hey bitch")
 let langButton = document.getElementsByClassName('langButton')
 var dataReload = document.querySelectorAll("a")
-
+var userLang = navigator.language
+console.log(userLang)
+if (userLang.includes('en') && !(window.location.hash === '#de')){
+    window.location.hash ='#en'
+}else if(userLang.includes('de') && !(window.location.hash === '#en')){
+    window.location.hash ='#de'
+}
 console.log(WindowTimeout)
 console.log(main.querySelectorAll('.icon'))
 
