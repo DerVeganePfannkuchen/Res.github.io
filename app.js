@@ -1,5 +1,4 @@
-//init all the variables 
-
+//init all the variables
 const icons = document.getElementsByClassName("icon")
 const content = document.getElementsByClassName("content")
 const main =document.querySelector('.mainIcons')
@@ -19,7 +18,10 @@ console.log(closeFooter[0].classList + "hey bitch")
 let langButton = document.getElementsByClassName('langButton')
 var dataReload = document.querySelectorAll("a")
 var userLang = navigator.language
-console.log(userLang)
+const expNavIcons =document.getElementsByClassName("expNavIcons")
+const expNavIconsTitle =document.getElementsByClassName("expNavIconsTitle")
+const iconDiv =document.querySelector('.iconDiv')
+const xpTabs = document.getElementsByClassName("xpTabs")
 if (userLang.includes('en') && !(window.location.hash === '#de')){
     window.location.hash ='#en'
 }else if(userLang.includes('de') && !(window.location.hash === '#en')){
@@ -259,12 +261,12 @@ var translations = {
 
     },
     de: {
-            portfoilo: 'Portfoilo',
-            experience: 'Erfahrung',
+            portfoilo: 'Portfolio',
+            experience: 'Erfahrungen',
             qualifcations: 'Qualifikationen',
-            endorsments : 'Empfhelungen',
-            education: 'Bildung',
-            home: 'Heimseite',
+            endorsments : 'Empfehlungen',
+            education: 'Ausbildung',
+            home: 'Hauptseite',
             about:'Über mich',
             contact: 'Kontakt',
             lang:'EN'
@@ -298,3 +300,48 @@ for(let i; i< dataReload.length;i++){
         
     })
 }
+//event listener for the tabs in the xp App
+iconDiv.addEventListener('click', event =>{
+    var images = [].slice.call(iconDiv.querySelectorAll('.expNavIcons'),0); // get all images inside frame1, and convert to array
+    var images2 = [].slice.call(iconDiv.querySelectorAll('.expNavIconsTitle'),0); // get all images inside frame1, and convert to array
+    let index =images.indexOf(event.target)
+    let index2 =images2.indexOf(event.target)
+   
+//if statements to swtich each tab when clicked
+    for( let i = 0; i < expNavIcons.length;i++){
+       if( i == index && !(xpTabs[index].classList.contains('hidden'))){
+        iconDiv.classList.add('footerShake')
+            setTimeout( removeShake =>{
+                iconDiv.classList.remove('footerShake')
+            },400)
+        return
+       }else if( i == index2 && !(xpTabs[index2].classList.contains('hidden'))){
+        iconDiv.classList.add('footerShake')
+            setTimeout( removeShake =>{
+                iconDiv.classList.remove('footerShake')
+            },400)
+        return
+       }else if( i == index){
+            console.log("first " +index)
+            console.log("seconond " +index2)
+            console.log("i " +i)
+            console.log(xpTabs[index].classList)
+            if(xpTabs[index].classList.contains('hidden')){
+                for(let x = 0;x < xpTabs.length;x++){
+                    xpTabs[x].classList.add('hidden')
+                }
+                xpTabs[index].classList.remove('hidden')
+                return
+            }
+        } else if( i == index2){
+            if(xpTabs[index2].classList.contains('hidden')){
+                for(let x = 0;x < xpTabs.length;x++){
+                    xpTabs[x].classList.add('hidden')
+                    
+                }
+                xpTabs[index2].classList.remove('hidden')
+                return
+            }
+        }
+    }
+})
